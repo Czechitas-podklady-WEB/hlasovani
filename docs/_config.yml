@@ -1,0 +1,5 @@
+theme: just-the-docs
+title: Hlasování API
+search_enabled: false
+# baseurl: /docs
+# apibase: https://server.com/apis

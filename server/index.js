@@ -7,6 +7,10 @@ const server = express();
 
 server.use(`${baseUrl}/`, express.static('client', { extensions: ['html'] }));
 
+server.use(`${baseUrl}/docs`, express.static('docs/_site', {
+  extensions: ['html'],
+}));
+
 server.get(`${baseUrl}/api`, (req, res) => {
   res.json({ hello: 'world' });
 });
