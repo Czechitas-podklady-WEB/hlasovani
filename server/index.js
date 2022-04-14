@@ -1,4 +1,5 @@
 import express from 'express';
+import data from './data.js';
 
 const port = process.env.PORT ?? 4000;
 const baseUrl = process.env.BASE_URL ?? '';
@@ -12,7 +13,7 @@ server.use(`${baseUrl}/docs`, express.static('docs/_site', {
 }));
 
 server.get(`${baseUrl}/api`, (req, res) => {
-  res.json({ hello: 'world' });
+  res.json({ results: data, status: 'ok' });
 });
 
 server.listen(port, () => {
