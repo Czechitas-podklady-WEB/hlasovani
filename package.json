@@ -1,0 +1,26 @@
+{
+  "name": "hlasovani",
+  "version": "1.0.0",
+  "description": "Tréningová aplikace na odesílání dat na server.",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Czechitas-podklady-WEB/hlasovani.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Czechitas-podklady-WEB/hlasovani/issues"
+  },
+  "homepage": "https://github.com/Czechitas-podklady-WEB/hlasovani#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

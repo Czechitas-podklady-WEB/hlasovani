@@ -1,2 +1,3 @@
-# hlasovani
-Tréningová aplikace na odesílání dat na server
+# Hlasování
+
+Tréningová aplikace na odesílání dat na server.
