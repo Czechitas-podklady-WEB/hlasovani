@@ -22,6 +22,17 @@ server.get(`${baseUrl}/api/polls`, (req, res) => {
   res.json({ results, status: 'success' });
 });
 
+server.get(`${baseUrl}/api/poll/:id`, (req, res) => {
+  const id = Number(req.params.id);
+  const poll = data.find((p) => p.id === id);
+  if (poll === undefined) {
+    res.status(404).send({ status: 'error', code: 'not-found' });
+    return;
+  }
+
+  res.json({ poll, status: 'success' });
+});
+
 server.listen(port, () => {
   console.info(`listening at ${port}...`);
 });
