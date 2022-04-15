@@ -12,8 +12,14 @@ server.use(`${baseUrl}/docs`, express.static('docs/_site', {
   extensions: ['html'],
 }));
 
-server.get(`${baseUrl}/api`, (req, res) => {
-  res.json({ results: data, status: 'ok' });
+server.get(`${baseUrl}/api/polls`, (req, res) => {
+  const results = data.map((poll) => ({
+    id: poll.id,
+    question: poll.question,
+    options: poll.options.length,
+    voters: poll.options.reduce((sum, option) => sum + option.voters.length, 0),
+  }));
+  res.json({ results, status: 'success' });
 });
 
 server.listen(port, () => {

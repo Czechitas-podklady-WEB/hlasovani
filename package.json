@@ -8,7 +8,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "bundle-docs": "cd docs && bundler exec jekyll build -c _config.server.yml && cd -",
+    "build-docs": "cd docs && bundler exec jekyll b -c _config.server.yml && cd -",
     "start": "npm run bundle-docs && node server/index.js"
   },
   "repository": {
