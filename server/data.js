@@ -5,21 +5,21 @@ export default [
     options: [
       {
         id: 0,
-        name: 'Od stopky',
+        text: 'Od stopky',
         voters: [
           'Míša', 'Verča', 'Filip',
         ]
       },
       {
         id: 1,
-        name: 'Od špičky',
+        text: 'Od špičky',
         voters: [
           'Jarka', 'Vilém',
         ]
       },
       {
         id: 2,
-        name: 'Přelomením vejpůl',
+        text: 'Přelomením vejpůl',
         voters: [
           'Ludvík',
         ]
@@ -32,28 +32,28 @@ export default [
     options: [
       {
         id: 0,
-        name: 'S hořčicí',
+        text: 'S hořčicí',
         voters: [
           'Jana', 'Petr',
         ]
       },
       {
         id: 1,
-        name: 'S kečupem',
+        text: 'S kečupem',
         voters: [
           'Jindřich', 'Radek',
         ]
       },
       {
         id: 2,
-        name: 'S obojím',
+        text: 'S obojím',
         voters: [
           'Jaroslav',
         ]
       },
       {
         id: 3,
-        name: 'Na sucho',
+        text: 'Na sucho',
         voters: [
           'Anička',
         ]
@@ -66,32 +66,32 @@ export default [
     options: [
       {
         id: 0,
-        name: 'Rachel',
+        text: 'Rachel',
         voters: [],
       },
       {
         id: 1,
-        name: 'Ross',
+        text: 'Ross',
         voters: [],
       },
       {
         id: 2,
-        name: 'Monica',
+        text: 'Monica',
         voters: [],
       },
       {
         id: 3,
-        name: 'Chandler',
+        text: 'Chandler',
         voters: [],
       },
       {
         id: 4,
-        name: 'Pheobe',
+        text: 'Pheobe',
         voters: [],
       },
       {
         id: 5,
-        name: 'Joey',
+        text: 'Joey',
         voters: [],
       }
     ]

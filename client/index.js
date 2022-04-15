@@ -1,14 +1,18 @@
-const renderPolls = (polls) => {
-  let innerHTML = '';
-  polls.forEach((poll) => {
-    innerHTML += `
-      <div class="poll">${poll.question}</div>
-    `;
-  })
-
-  document.querySelector('.polls').innerHTML = innerHTML;
+const PollLinks = (links) => {
+  return `
+    <h1>Hlasování</h1>
+    <div class="poll-links">
+      ${links.map(
+    (link) => (
+      `<a class="poll-link" href="poll?id=${link.id}">${link.question}</a>`
+    )).join('')
+    }
+    </div>
+  `;
 };
 
 fetch('/api/polls')
   .then((response) => response.json())
-  .then((data) => renderPolls(data.results));
+  .then((data) => {
+    document.querySelector('.container').innerHTML = PollLinks(data.results);
+  });
