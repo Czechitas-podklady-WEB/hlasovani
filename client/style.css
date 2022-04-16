@@ -36,3 +36,40 @@ h1 {
   transform: scale(1.05);
   transition: 400ms;
 }
+
+.options {
+  padding: 1.5rem 2rem;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 3px lightgray;
+}
+
+.option {
+  margin-bottom: 1.5rem;
+}
+
+.option__bar {
+  height: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: navy;
+}
+
+.option__text {
+  margin-bottom: 0.5rem; 
+}
+
+.option__voters {
+  margin-top: 0.5rem; 
+}
+
+.voter {
+  display: inline-block;
+  height: 1.2rem;
+  margin-left: 0.25rem;
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  border-radius: 0.6rem;
+  padding: 0.2rem 0.4rem ;
+  color: white;
+  background-color: navy;
+}
