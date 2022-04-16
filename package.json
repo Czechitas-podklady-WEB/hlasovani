@@ -8,8 +8,11 @@
     "doc": "docs"
   },
   "scripts": {
-    "build-docs": "cd docs && bundler exec jekyll b -c _config.server.yml && cd -",
-    "start": "npm run bundle-docs && node server/index.js"
+    "build:docs": "cd docs && bundler exec jekyll b -c _config.server.yml && cd -",
+    "dev:docs": "cd docs && bundler exec jekyll b -c _config.server.yml -w",
+    "dev:server": "nodemon server/index.js",
+    "start": "npm run build:docs && node server/index.js",
+    "dev": "concurrently npm:dev:*"
   },
   "repository": {
     "type": "git",
@@ -23,5 +26,9 @@
   "homepage": "https://github.com/Czechitas-podklady-WEB/hlasovani#readme",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "nodemon": "^2.0.15"
   }
 }
