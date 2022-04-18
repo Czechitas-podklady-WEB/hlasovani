@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Czechitas-podklady-WEB/hlasovani#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "express-longpoll": "0.0.6"
   },

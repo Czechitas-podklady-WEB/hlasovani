@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import data from './data.js';
 import longpoll from 'express-longpoll';
 
@@ -7,6 +8,7 @@ const baseUrl = process.env.BASE_URL ?? '';
 
 const server = express();
 server.use(express.json());
+server.use(cors());
 
 server.use(`${baseUrl}/`, express.static('client', { extensions: ['html'] }));
 
