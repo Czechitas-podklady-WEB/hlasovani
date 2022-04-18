@@ -62,7 +62,59 @@ export default [
   },
   {
     id: 2,
-    question: 'Která postava ze seriálu Přátelé jste?',
+    question: 'V jaký čas se sprchujete?',
+    options: [
+      {
+        id: 0,
+        text: 'Pouze ráno',
+        voters: [],
+      },
+      {
+        id: 1,
+        text: 'Pouze večer',
+        voters: [],
+      },
+      {
+        id: 2,
+        text: 'Ráno i večer',
+        voters: [],
+      },
+    ]
+  },
+  {
+    id: 3,
+    question: 'Který stravovací směr nejvíce dodržujete?',
+    options: [
+      {
+        id: 0,
+        text: 'Vegetariánství',
+        voters: [],
+      },
+      {
+        id: 1,
+        text: 'Veganství',
+        voters: [],
+      },
+      {
+        id: 2,
+        text: 'Low carb',
+        voters: [],
+      },
+      {
+        id: 2,
+        text: 'Paleo',
+        voters: [],
+      },
+      {
+        id: 2,
+        text: 'Žádný',
+        voters: [],
+      },
+    ]
+  },
+  {
+    id: 4,
+    question: 'Která postava ze seriálu Přátelé je vám nejblíž?',
     options: [
       {
         id: 0,
