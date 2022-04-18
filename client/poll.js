@@ -25,9 +25,20 @@ const Poll = (poll) => {
   `;
 };
 
+const updatePolls = () => {
+  fetch(`/api/poll/${params.get('id')}/updates`)
+    .then((response) => response.json())
+    .then((data) => {
+      document.querySelector('.container').innerHTML = Poll(data.poll);
+      setTimeout(updatePolls, 1000);
+    });
+}
+
 const params = new URLSearchParams(window.location.search);
 fetch(`/api/poll/${params.get('id')}`)
   .then((response) => response.json())
   .then((data) => {
     document.querySelector('.container').innerHTML = Poll(data.poll);
   });
+
+updatePolls();

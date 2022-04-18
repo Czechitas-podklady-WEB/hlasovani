@@ -1,5 +1,6 @@
 import express from 'express';
 import data from './data.js';
+import longpoll from 'express-longpoll';
 
 const port = process.env.PORT ?? 4000;
 const baseUrl = process.env.BASE_URL ?? '';
@@ -48,6 +49,11 @@ server.get(`${baseUrl}/api/poll/:id`, (req, res) => {
   res.json({ poll, status: 'success' });
 });
 
+const pollUpdates = longpoll(server);
+pollUpdates.create(`${baseUrl}/api/poll/:id/updates`, (req, res, next) => {
+  req.id = req.params.id;
+  next();
+});
 
 server.post(`${baseUrl}/api/poll/:id`, (req, res) => {
   const id = Number(req.params.id);
@@ -109,6 +115,7 @@ server.post(`${baseUrl}/api/poll/:id`, (req, res) => {
   }
 
   option.voters.push(voterName);
+  pollUpdates.publishToId(`${baseUrl}/api/poll/:id/updates`, id, { poll });
   res.json({ poll, status: 'success' });
 });
 
