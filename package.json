@@ -1,6 +1,6 @@
 {
   "name": "hlasovani",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tréningová aplikace na odesílání dat na server.",
   "main": "index.js",
   "type": "module",
