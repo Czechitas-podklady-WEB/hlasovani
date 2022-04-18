@@ -11,7 +11,7 @@ const PollLinks = (links) => {
   `;
 };
 
-fetch('/api/polls')
+fetch('api/polls')
   .then((response) => response.json())
   .then((data) => {
     document.querySelector('.container').innerHTML = PollLinks(data.results);
