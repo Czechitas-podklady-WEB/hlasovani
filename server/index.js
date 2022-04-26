@@ -73,7 +73,7 @@ server.post(`${baseUrl}/api/poll/:id`, (req, res) => {
   if (typeof optionId !== 'number') {
     res.status(400).send({
       status: 'error',
-      code: 'imvalid-field',
+      code: 'invalid-field',
       message: "The field 'optionId' is missing or is of invalid type",
     });
     return;
@@ -82,7 +82,7 @@ server.post(`${baseUrl}/api/poll/:id`, (req, res) => {
   if (typeof voterName !== 'string') {
     res.status(400).send({
       status: 'error',
-      code: 'imvalid-field',
+      code: 'invalid-field',
       message: "The field 'voterId' is missing or is of invalid type",
     });
     return;
@@ -91,7 +91,7 @@ server.post(`${baseUrl}/api/poll/:id`, (req, res) => {
   if (voterName.length === 0 || voterName.length > 12) {
     res.status(400).send({
       status: 'error',
-      code: 'imvalid-field',
+      code: 'invalid-field',
       message: "Field voterName must not be empty and must not exceed length 12.",
     });
     return;
