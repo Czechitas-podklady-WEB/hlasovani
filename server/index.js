@@ -134,7 +134,6 @@ server.get(`${baseUrl}/api/poll/:id/clearvotes`, (req, res) => {
   res.json({ status: 'success' });
 });
 
-
 server.listen(port, () => {
   console.info(`listening at ${port}...`);
 });

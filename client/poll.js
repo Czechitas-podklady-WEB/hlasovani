@@ -27,11 +27,22 @@ const Poll = (poll) => {
 
 const updatePolls = () => {
   fetch(`api/poll/${params.get('id')}/updates`)
-    .then((response) => response.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      
+      if (response.status === 504) {
+        setTimeout(updatePolls, 1000);
+      }
+      
+      return Promise.reject(response.status);
+    })
     .then((data) => {
       document.querySelector('.container').innerHTML = Poll(data.poll);
       setTimeout(updatePolls, 1000);
-    });
+    })
+    .catch(() => {});
 }
 
 const params = new URLSearchParams(window.location.search);
