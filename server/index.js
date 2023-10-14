@@ -58,6 +58,17 @@ pollUpdates.create(`${baseUrl}/api/poll/:id/updates`, (req, res, next) => {
 });
 
 server.post(`${baseUrl}/api/poll/:id`, (req, res) => {
+  const authName = req.headers.authorization;
+  
+  if (authName === undefined) {
+    res.status(401).send({
+      status: 'error',
+      code: 'unauthorized',
+      message: 'No authorization header found',
+    });
+    return;
+  }
+
   const id = Number(req.params.id);
   const poll = data.find((p) => p.id === id);
   if (poll === undefined) {
@@ -69,30 +80,12 @@ server.post(`${baseUrl}/api/poll/:id`, (req, res) => {
     return;
   }
 
-  const { optionId, voterName } = req.body;
+  const { optionId } = req.body;
   if (typeof optionId !== 'number') {
     res.status(400).send({
       status: 'error',
       code: 'invalid-field',
       message: "The field 'optionId' is missing or is of invalid type",
-    });
-    return;
-  }
-
-  if (typeof voterName !== 'string') {
-    res.status(400).send({
-      status: 'error',
-      code: 'invalid-field',
-      message: "The field 'voterId' is missing or is of invalid type",
-    });
-    return;
-  }
-
-  if (voterName.length === 0 || voterName.length > 12) {
-    res.status(400).send({
-      status: 'error',
-      code: 'invalid-field',
-      message: "Field voterName must not be empty and must not exceed length 12.",
     });
     return;
   }
@@ -107,16 +100,7 @@ server.post(`${baseUrl}/api/poll/:id`, (req, res) => {
     return;
   }
 
-  if (option.voters.includes(voterName)) {
-    res.status(400).send({
-      status: 'error',
-      code: 'multiple-votes',
-      message: `Voter '${voterName}' has already voted for this option`,
-    });
-    return;
-  }
-
-  option.voters.push(voterName);
+  option.voters.push(authName);
   pollUpdates.publishToId(`${baseUrl}/api/poll/:id/updates`, id, { poll });
   res.json({ poll, status: 'success' });
 });
