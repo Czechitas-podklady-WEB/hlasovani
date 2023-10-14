@@ -20,16 +20,17 @@ Enpoint očekává JSON objekt s těmito vlastnostmi
 | Vlastnost  | Typ    | Povinný |
 |------------|--------|---------|
 | optionId   | number | ano     |
-| voterName  | string | ano     |
+
+
 
 Příklad:
 
 ```json
 {
   "optionId": 1,
-  "voterName": "John"
 }
 ```
 
+**Autentizace**: pomocí hlavičky `Authorization` se jmémen uživatele. Jméno uživatele musí být řetězec délky alespoň 3 a maximálně 12.
+
 - `optionId` udává `id` možnosti, pro kterou chceme hlasovat.
-- `voterName` udává jméno hlasujícího. Musí být řetězec nenulové délky o délce maximálně 12.

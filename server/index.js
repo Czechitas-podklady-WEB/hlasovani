@@ -60,15 +60,24 @@ pollUpdates.create(`${baseUrl}/api/poll/:id/updates`, (req, res, next) => {
 server.post(`${baseUrl}/api/poll/:id`, (req, res) => {
   const authName = req.headers.authorization;
   
-  if (authName === undefined) {
+  if (authName === undefined || authName === '') {
     res.status(401).send({
       status: 'error',
       code: 'unauthorized',
-      message: 'No authorization header found',
+      message: 'Missing or empty authorization header',
     });
     return;
   }
 
+  if (authName.length < 3 || authName.length > 12) {
+    res.status(400).send({
+      status: 'error',
+      code: 'invalid-authorization',
+      message: "The 'authorization' header is too short or too long",
+    });
+    return;
+  }
+  
   const id = Number(req.params.id);
   const poll = data.find((p) => p.id === id);
   if (poll === undefined) {
